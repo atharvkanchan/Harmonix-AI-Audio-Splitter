@@ -1,0 +1,11 @@
+from fastapi import FastAPI
+from routes import split, analyze
+
+app = FastAPI(title="Harmonix AI Audio Splitter")
+
+app.include_router(split.router)
+app.include_router(analyze.router)
+
+@app.get("/")
+def home():
+    return {"message": "Harmonix API Running 🚀"}
